@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پروپوزال خدمات تحلیلگری مالی</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- نوار بالا -->
+  <nav class="no-print bg-white border-b sticky top-0 z-10 flex justify-between items-center px-6 py-3">
+    <span class="font-bold text-lg" style="color:var(--navy)">سامانه پروپوزال</span>
+    <div class="flex gap-2">
+      <button onclick="downloadPDF()" class="bg-blue-600 text-white px-4 py-2 rounded-lg">دریافت نسخه PDF</button>
+      <a href="admin.html" class="border px-4 py-2 rounded-lg">ورود ادمین</a>
+    </div>
+  </nav>
+
+  <!-- محتوای قابل خروجی PDF -->
+  <div id="proposal" class="max-w-5xl mx-auto p-6">
+
+    <!-- هیرو -->
+    <section class="hero rounded-2xl p-10 mb-8">
+      <p class="text-sm opacity-80" id="confidential"></p>
+      <h1 class="text-3xl font-bold mt-3" id="heroTitle"></h1>
+      <p class="mt-4 text-lg opacity-90" id="heroValue"></p>
+      <ul class="mt-6 space-y-2" id="heroPoints"></ul>
+    </section>
+
+    <!-- اطلاعات پروپوزال -->
+    <section class="section-card" id="metaSection"></section>
+
+    <!-- فازهای اجرایی -->
+    <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">فازهای اجرایی</h2>
+    <div id="phasesContainer"></div>
+
+    <!-- سطوح دقت -->
+    <section class="section-card" id="levelsSection"></section>
+
+    <!-- مدل همکاری -->
+    <section class="section-card" id="collabSection"></section>
+
+    <!-- جداول سرمایه‌گذاری -->
+    <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">جداول سرمایه‌گذاری</h2>
+    <div class="no-print flex gap-2 mb-4">
+      <button onclick="filterTable('all')"    class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg">همه</button>
+      <button onclick="filterTable('normal')" class="filter-btn border px-4 py-2 rounded-lg">مدل نرمال</button>
+      <button onclick="filterTable('special')"class="filter-btn border px-4 py-2 rounded-lg">مدل ویژه</button>
+    </div>
+    <div id="tablesContainer"></div>
+
+    <!-- ماتریس SWOT -->
+    <h2 class="text-2xl font-bold mb-4 mt-8" style="color:var(--navy)">تحلیل SWOT</h2>
+    <section class="section-card" id="swotSection"></section>
+
+    <!-- تبصره‌ها -->
+    <h2 class="text-2xl font-bold mb-4 mt-8" style="color:var(--navy)">تبصره‌های تعدیل اقتصادی</h2>
+    <div id="clausesContainer"></div>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
