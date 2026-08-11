@@ -1,0 +1,70 @@
+/* styles.css — استایل RTL شرکتی، مینیمال، پالت زغالی/آبی‌تیره */
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
+:root {
+  --charcoal: #1f2937;   /* خاکستری زغالی */
+  --navy: #0f2540;       /* آبی تیره */
+  --accent: #2563eb;
+  --light: #f8fafc;
+  --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Vazirmatn', 'IRANSansX', sans-serif;
+  direction: rtl;
+  background: var(--light);
+  color: var(--charcoal);
+  line-height: 1.9;
+  margin: 0;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--navy), var(--charcoal));
+  color: #fff;
+}
+
+.section-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.badge-risk-low    { background:#dcfce7; color:#166534; }
+.badge-risk-mid    { background:#fef9c3; color:#854d0e; }
+.badge-risk-high   { background:#fee2e2; color:#991b1b; }
+
+table { width:100%; border-collapse: collapse; }
+th, td { padding: .75rem; border:1px solid var(--border); text-align:right; }
+th { background: var(--navy); color:#fff; }
+
+/* نمایش کارتی در موبایل */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr { display:block; }
+  thead { display:none; }
+  tr { margin-bottom:1rem; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  td { border:none; border-bottom:1px solid var(--border); position:relative; padding-right:45%; }
+  td::before { content: attr(data-label); position:absolute; right:.75rem; font-weight:700; color:var(--navy); }
+}
+
+.swot-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+@media (max-width:640px){ .swot-grid{ grid-template-columns:1fr; } }
+.swot-box { border-radius:12px; padding:1rem; }
+.swot-s{ background:#ecfdf5;} .swot-w{ background:#fef2f2;}
+.swot-o{ background:#eff6ff;} .swot-t{ background:#fffbeb;}
+
+@media print { .no-print { display:none !important; } }
